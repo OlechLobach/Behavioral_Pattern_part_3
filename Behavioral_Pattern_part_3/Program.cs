@@ -1,10 +1,18 @@
-﻿namespace Behavioral_Pattern_part_3
+﻿using TemplateMethodPattern.Core;
+
+namespace TemplateMethodPattern
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Making Tea...");
+            Tea tea = new Tea();
+            tea.PrepareRecipe();
+
+            Console.WriteLine("\nMaking Coffee...");
+            Coffee coffee = new Coffee();
+            coffee.PrepareRecipe();
         }
     }
 }
