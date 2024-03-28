@@ -1,10 +1,19 @@
-﻿namespace Behavioral_Pattern_part_3
+﻿using StrategyPattern.Core;
+
+namespace StrategyPattern.App
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var paymentContext = new PaymentContext(new CreditCardPaymentStrategy());
+            paymentContext.ProcessPayment(100.50);
+
+            paymentContext.SetPaymentStrategy(new PayPalPaymentStrategy());
+            paymentContext.ProcessPayment(50.25);
+
+            paymentContext.SetPaymentStrategy(new CashPaymentStrategy());
+            paymentContext.ProcessPayment(30.00);
         }
     }
 }
